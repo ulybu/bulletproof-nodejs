@@ -12,8 +12,8 @@ import { Logger } from 'winston';
 const attachCurrentUser = async (req, res, next) => {
   const Logger: Logger = Container.get('logger');
   try {
-    const UserModel = Container.get('userModel') as mongoose.Model<IUser & mongoose.Document>;
-    const userRecord = await UserModel.findById(req.token._id);
+    const UserconfModel = Container.get('userconfModel') as mongoose.Model<IUser & mongoose.Document>;
+    const userRecord = await UserconfModel.findById(req.token._id);
     if (!userRecord) {
       return res.sendStatus(401);
     }
